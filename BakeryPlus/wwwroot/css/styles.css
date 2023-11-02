@@ -1,0 +1,37 @@
+.headerpadding {
+  margin-top: 80px;
+}
+
+ul {
+  padding-left: 40px;
+}
+
+
+div#header {
+  top: 0;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  background-color: lightgray;
+  color: navy;
+  font-style: italic;
+  font-size: 12px;
+  padding: 8px;
+}
+
+
+div#footer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  background-color: lightgray;
+  font-size: 12px;
+  padding:  8px;
+}
+
+
+
+#footer-image {
+  margin: 1% 2% 1%;
+}
