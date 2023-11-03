@@ -6,20 +6,8 @@
 
 <div class="headerpadding"></div>
 
-<h1>Welcome to Pierre's Sweet and Savory Treats!</h1>
+<h1>Flavors</h1>
 <hr />
-
-<h4>Treats</h4>
-@if (Model["treats"].Length == 0)
-{
-  <p>No treats have been added yet!</p>
-}
-<ul>
-  @foreach (Treat treat in Model["treats"])
-  {
-    <li>@Html.ActionLink(@treat.Description, "Details", "Treats", new {id = @treat.TreatId})</li>
-  }
-</ul>
 
 <h4>Flavors</h4>
 @if (Model["flavors"].Length == 0)
@@ -32,8 +20,6 @@
     <li>@Html.ActionLink(@flavor.Description, "Details", "Flavors", new { id = @flavor.FlavorId})</li>
   }
 </ul>
-
-<button type="button" class="btn btn-primary btn-lg btn-block">@Html.ActionLink("See Treats", "Index", "Treats")</button>
 
 <p>@Html.ActionLink("See all Treats", "Index", "Treats")</p>
 <p>@Html.ActionLink("See all Flavors", "Index", "Flavors")</p>
