@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+@model BakeryPlus.Models.Treat;
+@using BakeryPlus.Models;
+@using System.Collections.Generic;
+
+<div class=headerpadding></div>
+
+<h4>Edit This Treat: @Html.DisplayFor(model => model.Description)</h4>
+<hr />
+<p>@Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.TreatId)
+
+  @Html.LabelFor(model => model.Description)
+  @Html.EditorFor(model => model.Description)
+
+  <input type="submit" value="Update">
+}
+<h4>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</h4>

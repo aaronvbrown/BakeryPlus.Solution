@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@model BakeryPlus.Models.Treat;
+
+<div class=headerpadding></div>
+
+<h4>Add flavor options for this treat:  @Html.DisplayFor(model => model.Description)</h4>
+<hr />
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.TreatId)
+
+  @Html.Label("Select a flavor")
+  @Html.DropDownList("FlavorId")
+
+  <input type="submit" value="Add new flavor">
+}
+<p>@Html.ActionLink("Show All Combinations", "Index")</p>
+
+

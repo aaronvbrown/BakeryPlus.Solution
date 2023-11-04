@@ -2,6 +2,7 @@
 using BakeryPlus.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BakeryPlus.Migrations
 {
     [DbContext(typeof(BakeryPlusContext))]
-    partial class BakeryPlusContextModelSnapshot : ModelSnapshot
+    [Migration("20231104150733_updateFieldName")]
+    partial class updateFieldName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
