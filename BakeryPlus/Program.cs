@@ -2,7 +2,8 @@
   using Microsoft.EntityFrameworkCore;
   using Microsoft.Extensions.DependencyInjection;
   using BakeryPlus.Models;
-  // be sure to change the namespace to match your project
+  using Microsoft.AspNetCore.Identity;
+  
   namespace BakeryPlus
   {
     class Program
@@ -13,7 +14,7 @@
         WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
         builder.Services.AddControllersWithViews();
-        // be sure to update the line below for your project
+
         builder.Services.AddDbContext<BakeryPlusContext>(
                           dbContextOptions => dbContextOptions
                             .UseMySql(
@@ -22,6 +23,11 @@
                           )
                         );
 
+      builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<BakeryPlusContext>()
+                .AddDefaultTokenProviders();
+
+
         WebApplication app = builder.Build();
 
         app.UseDeveloperExceptionPage();
@@ -29,6 +35,9 @@
         app.UseStaticFiles();
 
         app.UseRouting();
+
+        app.UseAuthentication(); 
+        app.UseAuthorization();
 
         app.MapControllerRoute(
             name: "default",

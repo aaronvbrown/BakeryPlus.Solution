@@ -37,6 +37,10 @@ This utility allows for creation of treats, flavors and combinations of the two.
     }
   }
   ```
+  * Add the package for Microsoft Identity using the following command
+  ```bash
+  $ dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore -v 6.0.0
+  ```
 * Run **dotnet ef database update** from the command line to create a database locally that the project can use.
 * Run **dotnet run** in the command line to start the app
 * Run **dotnet watch run** in the command line to load in development mode with a watcher
