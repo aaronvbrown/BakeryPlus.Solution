@@ -2,19 +2,30 @@
   Layout = "_Layout";
 }
 
-<h2>Authentication with Identity</h2>
+@using BakeryPlus.ViewModels
+
+@model LoginViewModel
+
+<h2>Log in with your account</h2>
 <hr />
-@if (User.Identity.IsAuthenticated)
+
+@if(!ViewData.ModelState.IsValid) 
 {
-  <p>Hello @User.Identity.Name!</p>
-  @using (Html.BeginForm("LogOff", "Account"))
-  {
-    <input type="submit" class="btn btn-default" value="Log out" />
-  }
+  @Html.ValidationSummary("Please fix the following error(s) and then resubmit the form:") 
 }
-else
+
+@using (Html.BeginForm())
 {
-  <p>@Html.ActionLink("Register", "Register")</p>
-  <p>@Html.ActionLink("Log in", "Login")</p>
+  @Html.LabelFor(m => m.Email)
+  @Html.TextBoxFor(m => m.Email)
+
+  @Html.LabelFor(m => m.Password)
+  @Html.EditorFor(m => m.Password)
+
+  <input type="submit" value="Log in" />
 }
+
+<p>@Html.ActionLink("Register for an account", "Register")</p>
+<p>@Html.ActionLink("Back to accounts page", "Index")</p>
+
 <p>@Html.ActionLink("Home", "Index", "Home")</p>
