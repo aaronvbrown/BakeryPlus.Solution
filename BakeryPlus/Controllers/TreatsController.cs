@@ -4,9 +4,11 @@ using BakeryPlus.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BakeryPlus.Controllers
 {
+  [Authorize]
   public class TreatsController : Controller
   {
     private readonly BakeryPlusContext _db;
